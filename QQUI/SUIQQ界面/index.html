@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="author" content="wyh">
+		<link rel="stylesheet" href="SUI/sm.min.css">
+		<title>QQ</title>
+		<style>
+			#btn-title {
+				width: 40%;
+				margin: 0 auto;
+			}
+			
+			#msg-page,
+			#ab-page,
+			#dt-page {
+				animation: none !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="page-group">
+			<!--消息页面-->
+			<div class="page page-current" id="msg-page">
+				<header class="bar bar-nav">
+					<a class="icon icon-me pull-left open-panel" data-panel='#info-panel'></a>
+					<button class="button pull-right">＋</button>
+					<div id="btn-title" class="buttons-row">
+						<a class="tab-link active button">消息</a>
+						<a class="tab-link button">电话</a>
+					</div>
+				</header>
+				<nav class="bar bar-tab">
+					<a class="tab-item active" href="#msg-page">
+						<span class="icon icon-message"></span>
+						<span class="tab-label">消息</span>
+                        <span class="badge">99+</span>
+					</a>
+					<a class="tab-item" href="#ab-page">
+						<span class="icon icon-friends"></span>
+						<span class="tab-label">联系人</span>
+					</a>
+					<a class="tab-item" href="#dt-page">
+						<span class="icon icon-star"></span>
+						<span class="tab-label">动态</span>
+					</a>
+				</nav>
+				<div class="content">
+					<div class="content-block">
+						这里是消息列表
+					</div>
+				</div>
+			</div>
+			<!--联系人页面-->
+			<div class="page" id="ab-page">
+				<header class="bar bar-nav">
+					<a class="icon icon-me pull-left"></a>
+					<button class="button button-link pull-right">添加</button>
+					<h1 class="title">联系人</h1>
+				</header>
+				<nav class="bar bar-tab">
+					<a class="tab-item" href="#msg-page">
+						<span class="icon icon-message"></span>
+						<span class="tab-label">消息</span>
+					</a>
+					<a class="tab-item active" href="#ab-page">
+						<span class="icon icon-friends"></span>
+						<span class="tab-label">联系人</span>
+					</a>
+					<a class="tab-item" href="#dt-page">
+						<span class="icon icon-star"></span>
+						<span class="tab-label">动态</span>
+					</a>
+				</nav>
+				<div class="content">
+					<div class="content-block">
+						这里是好友列表
+					</div>
+				</div>
+			</div>
+			<!--动态页面-->
+			<div class="page" id="dt-page">
+				<header class="bar bar-nav">
+					<a class="icon icon-me pull-left"></a>
+					<button class="button button-link pull-right">更多</button>
+					<h1 class="title">动态</h1>
+				</header>
+				<nav class="bar bar-tab">
+					<a class="tab-item" href="#msg-page">
+						<span class="icon icon-message"></span>
+						<span class="tab-label">消息</span>
+					</a>
+					<a class="tab-item" href="#ab-page">
+						<span class="icon icon-friends"></span>
+						<span class="tab-label">联系人</span>
+					</a>
+					<a class="tab-item active" href="#dt-page">
+						<span class="icon icon-star"></span>
+						<span class="tab-label">动态</span>
+					</a>
+				</nav>
+				<div class="content">
+					<div class="content-block">
+						这里是动态列表
+					</div>
+				</div>
+			</div>
+            <!--侧栏-->
+            <div class="panel panel-left panel-reveal" id="info-panel">
+                <div class="content-block">
+                    <p>这是侧边栏</p>
+                </div>
+            </div>
+
+		</div>
+	</body>
+	<script src="SUI/zepto.min.js"></script>
+	<script src="SUI/sm.min.js"></script>
+
+	<script>
+		// url中第一个#后面的字符串时url的哈希值，hash值不会随请求发送到服务器
+		// 仅仅是指导浏览器当页面加载完成时显示页面的哪个部分 
+		// window.location.hash 可以访问当前页面的hash值
+		// window.onhashchange 事件可以监听hash的变化
+
+		// window.onhashchange = func;
+		// function func(){
+		//     console.log(1);
+		//     console.log(window.location.hash)
+		// }
+		// func();
+        $(document).on("pageInit","#msg-page",function(e,pageID,$page){
+            console.log(pageID);
+            document.title ="消息";
+        })
+        $(document).on("pageInit","#ab-page",function(e,pageID,$page){
+            console.log(pageID);
+            document.title ="联系人";
+        })
+        $(document).on("pageInit","#dt-page",function(e,pageID,$page){
+            console.log(pageID);
+            document.title ="动态";
+        })
+		$.init();
+	</script>
+	<html>
